@@ -1,0 +1,20 @@
+<html>
+<head>
+<title></title>
+<meta name="author" content="spy who loved me">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
+<br>
+<br>
+<a href="keyspy.zip">Download</a> the Keyspy assembler source code including Eagle 4.03 schematic and KEYSPY.HEX file
+<br>
+<br>
+The HEX file is build for a PIC16C84 running with a 10MHz crystal oscillator, a 24C64 external EEPROM and german keyboard layout. If you want to change these settings you would have to edit the source files and rebuild the project.<br>
+Edit the FUSES and the SPEED_ADJ value in the keyspy.asm file for a different oscillator. The schematic shows an RC oscillator connected to the OSC1 pin. Use this RC oscillator only if you have not enough space for a crystal oscillator, because the RC frequency is not that stable.
+If you want to use the RC oscillator, try the values 22pF for C1 and 4,7kOhm for R7. I got a frequency of about 5MHz with that values and it works with the SPEED_ADJ for 4MHz. <br>
+Please edit the testmsg.asm file and adapt it to the keyboard layout of your country. It is also a good idea to change the default password wich is also stored here :).<br>
+<br>
+And now have fun with the keyspy and don't forget to report your experiences with it!
+</body>
+</html>

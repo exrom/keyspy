@@ -1,0 +1,27 @@
+<html>
+<head>
+<title></title>
+<meta name="author" content="spy who loved me">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
+<font face="Arial"><table>
+<h1>Hardware</h1>
+<br>
+<img src="ks_block.gif" alt="block diagram" border="0"><br>
+<a href="ks_schematic.gif">View</a> the Eagle 4.0 schematic<br>
+<h3>The Keyspy consists of the following devices:</h3>
+<ul>
+<li>Microcontroller PIC16C84</li>
+<li>CMOS analog switch 4053</li>
+<li>serial I&sup2;C EEPROM 24C32, 24C64, 24C128, 24C256 or 24C512</li>
+</ul>
+<br>
+In normal operation mode the CMOS analog switch connects the data and clock line from PC
+to keyboard. The keyboard is always powered with the 5V from the PC. If any key is pressed
+the PIC receives the keystrokes on the clock and data line, decodes them and stores them
+in the EEPROM. If the user enters a specific password, the PIC will disconnect the keyboard
+from the PC and talks to the PC itself. <br>
+<br>
+</body>
+</html>

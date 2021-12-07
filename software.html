@@ -1,0 +1,50 @@
+<html>
+<head>
+<title></title>
+<meta name="author" content="spy who loved me">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
+<font face="Arial"><table>
+<h1>Software</h1><br>
+NOTE: The software of the KEYSPY free software; you can  redistribute it and/or modify it under the terms  of the GNU General Public License as published by the Free Software Foundation either version 2 of the License, or (at your option) any later version.<br>
+<br>
+When the KEYSPY is powered up it searches the EEPROM for the first empty memory cell. This will be the new write position and older recording sessions will not be deleted. If this position is found, the KEYSPY will write '***RESET***' to the memory. That means a user can later see when the PC (and the KEYSPY) was powered up.<br>
+In normal operation the KEYSPY will only listen to the DATA and CLK line of your PS/2 keyboard. The scancodes that come across these lines (e.g. a certain key is pressed or is released) are filtered, because not all keystrokes can be stored (will be explained later). If a scancode passes the filter, it is written into the external EEPROM (e.g. 24C64). The value 0xFF will never be written to the EEPROM as a recorded keystroke, beacuse this is the mark for an emty memory cell. If the EEPROM is cleared ba the KEYSPY, the value 0xFF is written to all memory cells.<br>
+<br>
+In the normal operation, the KEYSPY will listen to the scancodes and will recognize if the supervisor password is entered. With this password entered one has the possibility to get access to the KEYSPY menu that will appear on the screen. If the password is entered, the KEYSPY will leave its listen-state, will disconnect the keyboard from the PC and will speak to the PC itself like a 'real' keyboard. Before that, a
+n editor (like NOTEPAD.EXE) has to be opened. The following menu will appear on the screen:<br>
+<br>
+<font face="Courier New"><b>***KEYSPY V2.0<br>
+-o-utput EEPROM<br>
+-e-rase EEPROM<br>
+-c-hange password<br>
+-u-sed memory<br>
+</b></font>
+<br>
+By pressing 'o' the supervisor can display all the recorded keystrokes on the screen. The PIC will go into output mode and send all recorded key scancodes to the PC and return to receive mode. The recorded keystrokes remain in memory and the next recording session can begin. Now you will understand that not all the keystrokes that someone has entered before can be played back to the PC. Think, if the KEYSPY would send Alt-Tab to the PC... the focus would jump out of your editor window and all the recorded keystrokes could do anythink to your machine, that you don't really want...!<br>
+<br>
+If 'e' is pressed, the keyspy will start clearing the EEPROM completely by writing 0xFF to all memory locations. As soon as finished (it will take only a few seconds) the screen displays:<br>
+<br>
+<font face="Courier New"><b>Wait...done.<br><br></b></font>
+<br>
+By pressing 'c' in the menu, the supervisor will be prompted to enter an new password that will be the new supervisor password. This password will be stored in the internal EEPROM of the PIC16C84. If you don't remeber that password, you don't have to reprogram the PIC, but you can reset the password to the default password by connecting the RB4 pin to ground in the power up state.<br>
+<br>
+The option 'used memory' will display the used size and the total size of the connected external EEPROM in hexadecimal.<br>
+<br>
+<h3>Limitations:</h3>
+The KEYSPY Software will record all keys on the alphanumeric keypad except the TAB-key, the '^'-key, caps-lock, delete, Ctrl, Alt, and Alt-Gr.
+The left and the right shift key and the return key will be recorded.
+These limitations are necessary, because otherwise the KEYSPY output may let the focus 'jump' out of the editor window while playing back recorded keystrokes.<br>
+The KEYSPY can only record one scancode set. There are a few keyboards that use a different scancode set.
+If a PS/2 keyboard is used in combination with a PS/2 mouse, the mouse must not be moved during KEYSPY playback, because the mouse will affect the CLOCK line of the keyboard.
+<br>
+<br>
+<h3>Future plans:</h3>
+<li>Record 'dangerous' keys like TAB, Alt, Alt-Gr not as scancodes but as text in brackets (e.g.'{TAB}')</li>
+<li>Automatically detect the size of the connected external EEPROM by trying to read corresponding memory locations </li>
+</ul>
+We are searching for skilled people to give us bug reports and to help us developing new features for the KEYSPY. If you are interested, contact us.
+<br>
+</body>
+</html>
